@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/button"
+import { BrowserRouter } from "react-router-dom"
+import { Layout } from "./components/layout"
 
 function App() {
   return (
     <div>
-      <h1>Hello</h1>
-      <Button>Click me</Button>
+      <BrowserRouter>
+        <Layout>Hello</Layout>
+      </BrowserRouter>
     </div>
   )
 }
