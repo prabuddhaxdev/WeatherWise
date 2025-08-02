@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
-import { Search, Loader2, Clock, Star, XCircle } from "lucide-react";
+import { Search, Loader2,} from "lucide-react";
 import { useLocationSearch } from "@/hooks/use-weather";
 import {
   Command,
@@ -26,7 +25,7 @@ export function CitySearch() {
 //   const { history, clearHistory, addToHistory } = useSearchHistory();
 
   const handleSelect = (cityData: string) => {
-    const [lat, lon, name, country] = cityData.split("|");
+    const [lat, lon, name] = cityData.split("|");
 
     // Add to search history
     // addToHistory.mutate({
