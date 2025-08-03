@@ -8,6 +8,7 @@ import { WeatherForecast } from "../components/weather-forecast";
 import WeatherSkeleton from "../components/loading-skeleton";
 import { HourlyTemperature } from "@/components/hourly-temperature";
 
+
 export function CityPage() {
   const [searchParams] = useSearchParams();
   const params = useParams();
