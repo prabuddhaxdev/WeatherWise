@@ -3,17 +3,18 @@ import {
   useReverseGeocodeQuery,
   useWeatherQuery,
 } from "@/hooks/use-weather";
+import { CurrentWeather } from "../components/current-weather";
 import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { Button } from "../components/ui/button";
 import { MapPin, AlertTriangle, RefreshCw } from "lucide-react";
 import { useGeolocation } from "@/hooks/use-geolocation";
+import { WeatherDetails } from "../components/weather-details";
+import { WeatherForecast } from "../components/weather-forecast";
 import WeatherSkeleton from "../components/loading-skeleton";
-import { CurrentWeather } from "@/components/current-weather";
+import { FavoriteCities } from "@/components/favorite-cities";
 import { HourlyTemperature } from "@/components/hourly-temperature";
-import { WeatherDetails } from "@/components/weather-details";
-import { WeatherForecast } from "@/components/weather-forecast";
 
-export default function WeatherDashboard() {
+export function WeatherDashboard() {
   const {
     coordinates,
     error: locationError,
@@ -95,7 +96,7 @@ export default function WeatherDashboard() {
 
   return (
     <div className="space-y-4">
-      {/* <FavoriteCities /> */}
+      <FavoriteCities />
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button
