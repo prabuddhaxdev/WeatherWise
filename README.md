@@ -37,20 +37,10 @@ The application supports **Dark and Light themes**, ensuring accessibility and c
 - Dynamic API fetching  
 - Graceful handling of invalid locations  
 
-### 🌗 Dark / Light Theme Support
-- Seamless theme toggle  
-- System preference detection  
-- Persistent theme state  
-- Fully styled UI for both modes  
-
 ### ⚡ Optimized Data Fetching
 - Intelligent caching via TanStack React Query  
 - Reduced redundant API calls  
 - Background data refetching  
-
-### 📱 Responsive Design
-- Fully responsive across desktop, tablet, and mobile  
-- Clean modern UI with TailwindCSS + Shadcn  
 
 ---
 
@@ -63,25 +53,7 @@ The application supports **Dark and Light themes**, ensuring accessibility and c
 - **Styling:** Tailwind CSS  
 - **UI Components:** Shadcn/UI  
 - **Weather API:** OpenWeatherMap API  
-- **Deployment:** Vercel  
-
----
-
-### Design Decisions
-
-- Used **TanStack React Query** for scalable data caching.
-- Implemented global theme state for consistent dark/light mode.
-- Normalized API responses before rendering to keep UI components clean.
-- Separated business logic from presentation components.
-
----
-
-## 📊 Performance & Optimization
-
-- Reduced unnecessary API calls through query caching.
-- Minimized re-renders via component structuring and memoization.
-- Optimized bundle size using Vite.
-- Background refetching improves perceived performance.
+- **Deployment:** Vercel 
 
 ---
 
