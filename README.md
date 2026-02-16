@@ -1,72 +1,162 @@
-# React + TypeScript + Vite
+# WeatherWise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+<img width="1467" height="811" alt="weatherwise" src="https://github.com/user-attachments/assets/0ae19585-421e-49c4-8191-ee98c496f56c" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- 
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**WeatherWise** is a real-time weather forecasting application that provides accurate, interactive, and visually intuitive weather insights. It delivers hourly forecasts, wind speed, atmospheric pressure, and a 5-day outlook with dynamic charts and a seamless user experience.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The application supports **Dark and Light themes**, ensuring accessibility and comfortable viewing across different environments. Built with performance and scalability in mind, WeatherWise leverages modern frontend architecture and optimized API fetching strategies for fast and reliable weather updates.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ✨ Features
+
+### 🌤️ Real-Time Weather Data
+- Current temperature and weather conditions  
+- Feels-like temperature  
+- Wind speed and direction  
+- Atmospheric pressure  
+- Humidity levels  
+
+### 📊 Hourly Forecast Graphs
+- Interactive hourly temperature charts  
+- Smooth visualizations using Recharts  
+- Clear daily trend breakdown  
+
+### 📅 5-Day Forecast
+- Extended forecast overview  
+- Daily temperature summaries  
+- Weather condition indicators  
+
+### 🔎 Smart City Search
+- Search weather by city name  
+- Dynamic API fetching  
+- Graceful handling of invalid locations  
+
+### 🌗 Dark / Light Theme Support
+- Seamless theme toggle  
+- System preference detection  
+- Persistent theme state  
+- Fully styled UI for both modes  
+
+### ⚡ Optimized Data Fetching
+- Intelligent caching via TanStack React Query  
+- Reduced redundant API calls  
+- Background data refetching  
+
+### 📱 Responsive Design
+- Fully responsive across desktop, tablet, and mobile  
+- Clean modern UI with TailwindCSS + Shadcn  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React + TypeScript  
+- **Build Tool:** Vite  
+- **State & Data Fetching:** TanStack React Query  
+- **Charts:** Recharts  
+- **Styling:** Tailwind CSS  
+- **UI Components:** Shadcn/UI  
+- **Weather API:** OpenWeatherMap API  
+- **Deployment:** Vercel  
+
+---
+
+### Design Decisions
+
+- Used **TanStack React Query** for scalable data caching.
+- Implemented global theme state for consistent dark/light mode.
+- Normalized API responses before rendering to keep UI components clean.
+- Separated business logic from presentation components.
+
+---
+
+## 📊 Performance & Optimization
+
+- Reduced unnecessary API calls through query caching.
+- Minimized re-renders via component structuring and memoization.
+- Optimized bundle size using Vite.
+- Background refetching improves perceived performance.
+
+---
+
+## 🧩 Technical Challenges & Solutions
+
+### 1️⃣ API Rate Limiting
+
+**Challenge:**  
+Prevent excessive API calls and handle rate limits effectively.
+
+**Solution:**  
+Configured React Query’s `staleTime` and caching mechanisms to limit redundant requests.
+
+---
+
+### 2️⃣ Complex API Data Structure
+
+**Challenge:**  
+OpenWeatherMap responses contain deeply nested data not directly suitable for charts.
+
+**Solution:**  
+Created transformation utilities to extract and normalize required data before rendering.
+
+---
+
+### 4️⃣ Handling Loading & Error States
+
+**Challenge:**  
+Maintaining smooth UX during network delays or invalid searches.
+
+**Solution:**  
+Integrated loading indicators and structured error handling using React Query states.
+
+---
+
+## ⚖️ Engineering Tradeoffs
+
+- Used **Tanstack Query** over manual fetch logic for better scalability.
+- Chose **Recharts** instead of custom chart implementation to accelerate development.
+- Kept architecture fully client-side to simplify deployment.
+
+---
+
+## 🚀 Future Improvements
+
+- Geolocation-based weather detection  
+- Weather alerts & notifications  
+- Historical weather analytics  
+- Backend proxy layer for improved API key protection  
+- PWA support for offline caching  
+
+---
+
+## 📚 What I Learned
+
+- Advanced client-side caching strategies  
+- Handling third-party API limitations  
+- Building scalable UI architecture  
+- Implementing global dark/light theme systems  
+- Designing clean data transformation layers  
+- Improving UX with intelligent loading and state management  
+
+---
+
+## 🛠️ Setup & Installation
+
+```bash
+git clone https://github.com/your-username/WeatherWise.git
+cd WeatherWise
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Create a `.env` file:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_WEATHER_API_KEY=your_openweathermap_api_key
 ```
-
-
